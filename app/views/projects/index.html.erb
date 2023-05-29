@@ -1,0 +1,38 @@
+<style>
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+</style>
+
+<%= button_to 'New Project', new_project_path(@project), {method: 'get', class: "btn btn-primary btn-lg float-end m-2" }%>
+
+<h2>Projects Table</h2>
+
+<table>
+  <tr>
+    <th>Project Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  
+  <% @projects.each do |project| %>
+  <tr>
+    <td><%= project.name %></td>
+    <td><%= button_to 'Edit', edit_project_path(project), {method: 'get', class: "btn btn-secondary"} %></td>
+    <td><%= button_to 'Remove', project_path(project), {method: 'delete', data: {confirm: 'Are You Sure?'},class: "btn btn-danger"} %></td>
+  </tr>
+  <% end %>
+</table>
+

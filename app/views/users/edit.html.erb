@@ -1,0 +1,17 @@
+<div class="col-md-12">
+	<h1>Update <%= @user.email %></h1>
+	<h2>Avaliable roles <%= @user.roles.pluck(:name).join(', ')%></h2>	
+	<div class="col-md-6">
+		<%= form_with model: @user do |form| %>
+		<%= select_tag "roles", options_from_collection_for_select(Role.all, "id", "name"), {prompt: 'Select a Role', class: 'form-control'} %>
+		<%= form.submit 'Add role', class: "btn btn-primary m-4" %>
+		<% end %>
+	</div>
+    <br><br>
+	<div class="col-md-6">
+		<%= form_with model: @user do |form| %>
+		<%= select_tag "roles", options_from_collection_for_select(Role.all, "id", "name"), {prompt: 'Select a Role', class: 'form-control'} %>
+		<%= form.submit 'Remove role', class: "btn btn-danger m-4" %>
+		<% end %>
+	</div>
+</div>

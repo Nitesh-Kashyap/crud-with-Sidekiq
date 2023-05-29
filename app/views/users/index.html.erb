@@ -1,0 +1,33 @@
+<style>
+	table {
+		font-family: arial, sans-serif;
+		border-collapse: collapse;
+		width: 100%;
+	}
+
+	td, th {
+		border: 1px solid #dddddd;
+		text-align: left;
+		padding: 8px;
+	}
+
+	tr:nth-child(even) {
+		background-color: #dddddd;
+	}
+</style>
+<h2>User Table</h2>
+
+<table>
+	<tr>
+		<th>User Name</th>
+		<th>Add-Roles</th>
+	</tr>
+
+	<% @users.each do |user| %>
+	<tr>
+		<td><%= user.email %></td>
+		<td><%= button_to 'Edit', edit_user_path(user), {method: 'get', class: "btn btn-secondary"} %></td>
+	</tr>
+	<% end %>
+</table>
+
